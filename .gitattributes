@@ -1,2 +1,115 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sip & Savour</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .hero {
+            background-image: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://picsum.photos/1920/1080');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            text-align: center;
+        }
+        .menu-item {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">Sip & Savour</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#menu">Menu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="hero" id="home">
+        <div>
+            <h1 class="display-1">Welcome to Sip & Savour</h1>
+            <p class="lead">Where every sip tells a story</p>
+            <button class="btn btn-primary" onclick="location.href='#about'">Learn More</button>
+        </div>
+    </div>
+    <div class="container mt-5" id="about">
+        <h2 class="mb-4">About Us</h2>
+        <p>Sip & Savour is a cozy cafe in the heart of the city. We serve specialty coffee, teas, and delicious food made with love.</p>
+    </div>
+    <div class="container mt-5" id="menu">
+        <h2 class="mb-4">Menu</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <img src="https://picsum.photos/200/150" class="img-fluid menu-item" data-bs-toggle="modal" data-bs-target="#menuItemModal" data-image="https://picsum.photos/800/600">
+                <h3>Coffee</h3>
+                <p>$2.50</p>
+            </div>
+            <div class="col-md-4">
+                <img src="https://picsum.photos/200/151" class="img-fluid menu-item" data-bs-toggle="modal" data-bs-target="#menuItemModal" data-image="https://picsum.photos/800/601">
+                <h3>Tea</h3>
+                <p>$2.00</p>
+            </div>
+            <div class="col-md-4">
+                <img src="https://picsum.photos/200/152" class="img-fluid menu-item" data-bs-toggle="modal" data-bs-target="#menuItemModal" data-image="https://picsum.photos/800/602">
+                <h3>Pastries</h3>
+                <p>$3.50</p>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="menuItemModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Menu Item</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <img src="" alt="Menu Item" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="bg-dark text-white mt-5">
+        <div class="container py-3">
+            <div class="row">
+                <div class="col-md-6">&copy; 2024 Sip & Savour. All rights reserved.</div>
+                <div class="col-md-6 text-end">
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('menuItemModal').addEventListener('show.bs.modal', function(event) {
+            if (event.relatedTarget) {
+                const image = event.relatedTarget.dataset.image;
+                this.querySelector('.modal-body img').src = image;
+            }
+        });
+    </script>
+</body>
+</html>
